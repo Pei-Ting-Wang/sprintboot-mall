@@ -4,6 +4,7 @@ import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.dao.ProductDao;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.service.ProductService;
+import dto.ProductQueryParams;
 import dto.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,8 +19,8 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
-        return productDao.getProducts(category,search);
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
+        return productDao.getProducts(productQueryParams);
     }
 
     @Override

@@ -4,6 +4,7 @@ import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.dao.ProductDao;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.rowmapper.ProductRowMapper;
+import dto.ProductQueryParams;
 import dto.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
@@ -25,17 +26,17 @@ public class ProductDaoImpl implements ProductDao {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
         String sql="SELECT product_id,product_name, category, image_url, price, stock, description, created_date, last_modified_date" +
                 " FROM product WHERE 1=1";
         Map<String, Object> map=new HashMap<>();
-        if(category != null){
+        if(productQueryParams.getCategory() != null){
             sql = sql +" AND category = :category";
-            map.put("category", category.name());
+            map.put("category", productQueryParams.getCategory().name());
         }
-        if(search != null){
+        if(productQueryParams.getSearch() != null){
             sql=sql+" AND product_name LIKE :product_name";
-            map.put("product_name", "%"+search+"%");
+            map.put("product_name", "%"+productQueryParams.getSearch()+"%");
         }
         List<Product> productList=namedParameterJdbcTemplate.query(sql,map,new ProductRowMapper());
         return productList;

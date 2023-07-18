@@ -3,6 +3,7 @@ package com.penny.shoppingmall.controller;
 import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.service.ProductService;
+import dto.ProductQueryParams;
 import dto.ProductRequest;
 import jakarta.validation.Valid;
 import jakarta.websocket.server.PathParam;
@@ -20,9 +21,14 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(@RequestParam(required = false) ProductCategory category,
-                                                     @RequestParam(required = false) String serach){
-        List<Product> productList=productService.getProducts(category,serach);
+    public ResponseEntity<List<Product>> getProducts(
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search){
+
+        ProductQueryParams productQueryParams=new ProductQueryParams();
+        productQueryParams.setCategory(category);
+        productQueryParams.setSearch(search);
+        List<Product> productList=productService.getProducts(productQueryParams);
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
 
