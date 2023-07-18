@@ -1,5 +1,6 @@
 package com.penny.shoppingmall.service.impl;
 
+import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.dao.ProductDao;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.service.ProductService;
@@ -17,8 +18,8 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Product> getProducts() {
-        return productDao.getProducts();
+    public List<Product> getProducts(ProductCategory category, String search) {
+        return productDao.getProducts(category,search);
     }
 
     @Override
