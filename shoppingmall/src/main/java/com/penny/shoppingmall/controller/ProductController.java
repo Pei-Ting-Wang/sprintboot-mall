@@ -3,6 +3,7 @@ package com.penny.shoppingmall.controller;
 import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.service.ProductService;
+import com.penny.shoppingmall.util.Page;
 import dto.ProductQueryParams;
 import dto.ProductRequest;
 import jakarta.validation.Valid;
@@ -25,7 +26,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(
+    public ResponseEntity<Page<Product>> getProducts(
             //查詢條件
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search,
@@ -49,7 +50,15 @@ public class ProductController {
 
 
         List<Product> productList=productService.getProducts(productQueryParams);
-        return ResponseEntity.status(HttpStatus.OK).body(productList);
+
+        Page<Product> page=new Page<>();
+        page.setLimit(limit);
+        page.setOffset(offset);
+        page.setResult(productList);
+        //不同類會有不同比 ex:FOOD,CAR
+        page.setTotal(productService.countProduct(productQueryParams));
+
+        return ResponseEntity.status(HttpStatus.OK).body(page);
     }
 
     @GetMapping("/products/{productId}")
