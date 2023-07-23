@@ -30,7 +30,7 @@ public class UserDaoImpl implements UserDao {
                 " VALUES ( :email , :password, :createdDate, :lastModifiedDate)";
         Map<String,Object> map = new HashMap<>();
         map.put("email",userRegisterRequest.getEmail());
-        map.put("password",userRegisterRequest.getEmail());
+        map.put("password",userRegisterRequest.getPassword());
 
         Date now = new Date();
         map.put("createdDate", now);
