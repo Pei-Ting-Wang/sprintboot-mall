@@ -1,11 +1,10 @@
 package com.penny.shoppingmall.service.impl;
 
-import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.dao.ProductDao;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.service.ProductService;
-import dto.ProductQueryParams;
-import dto.ProductRequest;
+import com.penny.shoppingmall.dto.ProductQueryParams;
+import com.penny.shoppingmall.dto.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

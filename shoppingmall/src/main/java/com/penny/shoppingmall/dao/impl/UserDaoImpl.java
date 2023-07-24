@@ -3,16 +3,14 @@ package com.penny.shoppingmall.dao.impl;
 import com.penny.shoppingmall.dao.UserDao;
 import com.penny.shoppingmall.model.User;
 import com.penny.shoppingmall.rowmapper.UserRowMapper;
-import dto.UserRegisterRequest;
+import com.penny.shoppingmall.dto.UserRegisterRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
-import java.security.Key;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;

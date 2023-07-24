@@ -1,9 +1,8 @@
 package com.penny.shoppingmall.service;
 
-import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.model.Product;
-import dto.ProductQueryParams;
-import dto.ProductRequest;
+import com.penny.shoppingmall.dto.ProductQueryParams;
+import com.penny.shoppingmall.dto.ProductRequest;
 
 import java.util.List;
 

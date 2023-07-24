@@ -3,17 +3,14 @@ package com.penny.shoppingmall.service.impl;
 import com.penny.shoppingmall.dao.UserDao;
 import com.penny.shoppingmall.model.User;
 import com.penny.shoppingmall.service.UserService;
-import dto.UserLoginRequest;
-import dto.UserRegisterRequest;
-import org.apache.coyote.Response;
-import org.slf4j.ILoggerFactory;
+import com.penny.shoppingmall.dto.UserLoginRequest;
+import com.penny.shoppingmall.dto.UserRegisterRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 @Component

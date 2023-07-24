@@ -1,8 +1,8 @@
 package com.penny.shoppingmall.service;
 
 import com.penny.shoppingmall.model.User;
-import dto.UserLoginRequest;
-import dto.UserRegisterRequest;
+import com.penny.shoppingmall.dto.UserLoginRequest;
+import com.penny.shoppingmall.dto.UserRegisterRequest;
 
 public interface UserService {
     Integer register(UserRegisterRequest userRegisterRequest);

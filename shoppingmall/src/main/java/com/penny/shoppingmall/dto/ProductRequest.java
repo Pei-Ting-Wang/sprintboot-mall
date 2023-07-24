@@ -1,4 +1,4 @@
-package dto;
+package com.penny.shoppingmall.dto;
 
 import com.penny.shoppingmall.constant.ProductCategory;
 import jakarta.validation.constraints.NotNull;

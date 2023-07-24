@@ -2,8 +2,8 @@ package com.penny.shoppingmall.controller;
 
 import com.penny.shoppingmall.model.User;
 import com.penny.shoppingmall.service.UserService;
-import dto.UserLoginRequest;
-import dto.UserRegisterRequest;
+import com.penny.shoppingmall.dto.UserLoginRequest;
+import com.penny.shoppingmall.dto.UserRegisterRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

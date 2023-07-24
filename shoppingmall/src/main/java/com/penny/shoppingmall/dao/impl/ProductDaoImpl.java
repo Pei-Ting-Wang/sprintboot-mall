@@ -1,13 +1,11 @@
 package com.penny.shoppingmall.dao.impl;
 
-import com.penny.shoppingmall.constant.ProductCategory;
 import com.penny.shoppingmall.dao.ProductDao;
 import com.penny.shoppingmall.model.Product;
 import com.penny.shoppingmall.rowmapper.ProductRowMapper;
-import dto.ProductQueryParams;
-import dto.ProductRequest;
+import com.penny.shoppingmall.dto.ProductQueryParams;
+import com.penny.shoppingmall.dto.ProductRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
