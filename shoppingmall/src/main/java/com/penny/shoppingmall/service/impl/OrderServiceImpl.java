@@ -5,6 +5,7 @@ import com.penny.shoppingmall.dao.ProductDao;
 import com.penny.shoppingmall.dao.UserDao;
 import com.penny.shoppingmall.dto.BuyItem;
 import com.penny.shoppingmall.dto.CreateOrderRequest;
+import com.penny.shoppingmall.dto.OrderQueryParams;
 import com.penny.shoppingmall.model.Order;
 import com.penny.shoppingmall.model.OrderItem;
 import com.penny.shoppingmall.model.Product;
@@ -33,6 +34,21 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private UserDao userDao;
+
+    @Override
+    public List<Order> getOrders(OrderQueryParams orderQueryParams) {
+        List<Order> orderList=orderDao.getOrders(orderQueryParams);
+        for(Order order : orderList){
+            List<OrderItem> orderItemList=orderDao.getOrderItemById(order.getOrderId());
+            order.setOrderItemList(orderItemList);
+        }
+        return orderList;
+    }
+
+    @Override
+    public Integer countOrder(OrderQueryParams orderQueryParams) {
+        return orderDao.countOrder(orderQueryParams);
+    }
 
     @Override
     public Order getOrderById(Integer orderId) {
